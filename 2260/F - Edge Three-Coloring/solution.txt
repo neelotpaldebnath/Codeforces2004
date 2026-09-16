@@ -1,0 +1,159 @@
+import sys
+ 
+def execute_program():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    idx = 1
+    out = []
+    
+    for _ in range(t):
+        n = int(input_data[idx])
+        m = int(input_data[idx+1])
+        idx += 2
+        
+        adj = [[] for _ in range(n + 1)]
+        edges = []
+        for i in range(m):
+            u = int(input_data[idx])
+            v = int(input_data[idx+1])
+            idx += 2
+            adj[u].append((v, i))
+            adj[v].append((u, i))
+            edges.append((u, v))
+            
+        visited = [False] * (n + 1)
+        parent_node = [0] * (n + 1)
+        parent_edge = [-1] * (n + 1)
+        depth = [0] * (n + 1)
+        
+        # Build Spanning Tree using BFS
+        q = [1]
+        visited[1] = True
+        head = 0
+        while head < len(q):
+            u = q[head]
+            head += 1
+            for v, e_idx in adj[u]:
+                if not visited[v]:
+                    visited[v] = True
+                    parent_node[v] = u
+                    parent_edge[v] = e_idx
+                    depth[v] = depth[u] + 1
+                    q.append(v)
+                    
+        is_tree_edge = [False] * m
+        for i in range(2, n + 1):
+            is_tree_edge[parent_edge[i]] = True
+            
+        fundamental_cycles_mask = []
+        for i in range(m):
+            if not is_tree_edge[i]:
+                u, v = edges[i]
+                c_mask = (1 << i)
+                curr_u = u
+                curr_v = v
+                # Traverse up to the Lowest Common Ancestor (LCA)
+                while curr_u != curr_v:
+                    if depth[curr_u] > depth[curr_v]:
+                        c_mask |= (1 << parent_edge[curr_u])
+                        curr_u = parent_node[curr_u]
+                    elif depth[curr_v] > depth[curr_u]:
+                        c_mask |= (1 << parent_edge[curr_v])
+                        curr_v = parent_node[curr_v]
+                    else:
+                        c_mask |= (1 << parent_edge[curr_u])
+                        curr_u = parent_node[curr_u]
+                        c_mask |= (1 << parent_edge[curr_v])
+                        curr_v = parent_node[curr_v]
+                fundamental_cycles_mask.append(c_mask)
+                
+        r = len(fundamental_cycles_mask)
+        is_valid = False
+        
+        # Test all symmetric differences of fundamental cycles
+        for mask in range(1, 1 << r):
+            S_mask = 0
+            for i in range(r):
+                if (mask & (1 << i)):
+                    S_mask ^= fundamental_cycles_mask[i]
+                    
+            if S_mask == 0:
+                continue
+                
+            degree = {}
+            temp = S_mask
+            while temp > 0:
+                lsb = temp & -temp
+                e_idx = lsb.bit_length() - 1
+                u, v = edges[e_idx]
+                degree[u] = degree.get(u, 0) + 1
+                degree[v] = degree.get(v, 0) + 1
+                temp ^= lsb
+                
+            # Must be a cycle (degree exactly 2 for all involved vertices)
+            is_deg_2 = True
+            for d in degree.values():
+                if d != 2:
+                    is_deg_2 = False
+                    break
+            if not is_deg_2:
+                continue
+                
+            start_node = next(iter(degree))
+            
+            # Check connectedness of the cycle
+            visited_S = {start_node}
+            q_S = [start_node]
+            head_S = 0
+            while head_S < len(q_S):
+                u = q_S[head_S]
+                head_S += 1
+                for v, e_idx in adj[u]:
+                    if (S_mask & (1 << e_idx)):
+                        if v not in visited_S:
+                            visited_S.add(v)
+                            q_S.append(v)
+                            
+            if len(visited_S) != len(degree):
+                continue
+                
+            # Verify if vertices of the cycle are connected in G \ S
+            in_V_S = [False] * (n + 1)
+            for u in degree:
+                in_V_S[u] = True
+                
+            visited_bfs = [False] * (n + 1)
+            q_bfs = [start_node]
+            visited_bfs[start_node] = True
+            reach_count = 1
+            
+            head_bfs = 0
+            while head_bfs < len(q_bfs):
+                u = q_bfs[head_bfs]
+                head_bfs += 1
+                for v, e_idx in adj[u]:
+                    # Exclusively traverse edges not present in S_mask
+                    if not (S_mask & (1 << e_idx)):
+                        if not visited_bfs[v]:
+                            visited_bfs[v] = True
+                            q_bfs.append(v)
+                            if in_V_S[v]:
+                                reach_count += 1
+                                
+            if reach_count == len(degree):
+                is_valid = True
+                break
+                
+        if is_valid:
+            out.append("YES")
+        else:
+            out.append("NO")
+            
+    print('
+'.join(out))
+ 
+if __name__ == '__main__':
+    execute_program()
