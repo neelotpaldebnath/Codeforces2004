@@ -1,0 +1,77 @@
+import sys
+from bisect import bisect_right
+ 
+def solve():
+    # Fast I/O reading
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    out = []
+    idx = 1
+    
+    for _ in range(t):
+        n = int(input_data[idx])
+        idx += 1
+        
+        # We process the array to find the number of 1s before each 0
+        ones = 0
+        C = []
+        for _ in range(n):
+            val = int(input_data[idx])
+            idx += 1
+            if val == 1:
+                ones += 1
+            else:
+                if ones > 0:
+                    C.append(ones)
+                    
+        s = input_data[idx]
+        idx += 1
+        
+        k = len(C)
+        # Prefix sums structure over array C for O(1) interval summations
+        P = [0] * (k + 1)
+        for i in range(k):
+            P[i+1] = P[i] + C[i]
+            
+        ans = []
+        
+        # x captures accumulated left-to-right bubble operations
+        # y captures accumulated right-to-left reverse bubble operations
+        x = 0
+        y = 0
+        
+        def get_area(x, y):
+            # Dropping the 'y' largest rows equivalently caps the elements we explore
+            E = k - y
+            if E <= 0:
+                return 0
+            
+            # Using binary search to find elements that survive subtraction of 'x'
+            pos = bisect_right(C, x, 0, E)
+            if pos >= E:
+                return 0
+                
+            # Compute area contribution of survived blocks
+            return (P[E] - P[pos]) - x * (E - pos)
+        
+        # Evaluate Initial Status
+        ans.append(str(get_area(0, 0)))
+        
+        # Evaluate operation statuses continuously
+        for char in s:
+            if char == '1':
+                x += 1
+            else:
+                y += 1
+            ans.append(str(get_area(x, y)))
+            
+        out.append(" ".join(ans))
+        
+    print("
+".join(out))
+ 
+if __name__ == '__main__':
+    solve()
