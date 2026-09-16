@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 30 | 22 |
+| 31 | 23 |
 
 ---
 
@@ -15,9 +15,9 @@
 - [2-sat](#2-sat) (1)
 - [binary search](#binary-search) (2)
 - [bitmasks](#bitmasks) (1)
-- [brute force](#brute-force) (7)
+- [brute force](#brute-force) (8)
 - [combinatorics](#combinatorics) (4)
-- [constructive algorithms](#constructive-algorithms) (8)
+- [constructive algorithms](#constructive-algorithms) (9)
 - [data structures](#data-structures) (7)
 - [dfs and similar](#dfs-and-similar) (5)
 - [divide and conquer](#divide-and-conquer) (1)
@@ -28,10 +28,11 @@
 - [greedy](#greedy) (8)
 - [implementation](#implementation) (5)
 - [interactive](#interactive) (1)
-- [math](#math) (13)
+- [math](#math) (14)
 - [matrices](#matrices) (2)
 - [number theory](#number-theory) (5)
 - [sortings](#sortings) (2)
+- [strings](#strings) (1)
 - [trees](#trees) (4)
 - [two pointers](#two-pointers) (2)
 
@@ -67,6 +68,7 @@
 | 2260D | [Signs of Prefix Sums](https://codeforces.com/contest/2260/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/D%20-%20Signs%20of%20Prefix%20Sums/solution.txt) |
 | 2260F | [Edge Three-Coloring](https://codeforces.com/contest/2260/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/F%20-%20Edge%20Three-Coloring/solution.txt) |
 | 2260G | [Sortable Permutations](https://codeforces.com/contest/2260/problem/G) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/G%20-%20Sortable%20Permutations/solution.txt) |
+| 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
 
 ### combinatorics
 
@@ -88,6 +90,7 @@
 | 2260D | [Signs of Prefix Sums](https://codeforces.com/contest/2260/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/D%20-%20Signs%20of%20Prefix%20Sums/solution.txt) |
 | 2260E | [Cyclic Balance](https://codeforces.com/contest/2260/problem/E) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/E%20-%20Cyclic%20Balance/solution.txt) |
 | 2263B | [Min Matrices](https://codeforces.com/contest/2263/problem/B) | Unrated | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2263/B%20-%20Min%20Matrices/solution.cpp) |
+| 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
 | 2264F | [Deranged Calculator](https://codeforces.com/contest/2264/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/F%20-%20Deranged%20Calculator/solution.txt) |
 
 ### data structures
@@ -200,6 +203,7 @@
 | 2260E | [Cyclic Balance](https://codeforces.com/contest/2260/problem/E) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/E%20-%20Cyclic%20Balance/solution.txt) |
 | 2260G | [Sortable Permutations](https://codeforces.com/contest/2260/problem/G) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/G%20-%20Sortable%20Permutations/solution.txt) |
 | 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
+| 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
 | 2264F | [Deranged Calculator](https://codeforces.com/contest/2264/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/F%20-%20Deranged%20Calculator/solution.txt) |
 
 ### matrices
@@ -225,6 +229,12 @@
 |---|---------|------------|----------|
 | 2257E | [Busy Beaver](https://codeforces.com/contest/2257/problem/E) | 2000 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2257/E%20-%20Busy%20Beaver/solution.txt) |
 | 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
+
+### strings
+
+| # | Problem | Difficulty | Solution |
+|---|---------|------------|----------|
+| 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
 
 ### trees
 
