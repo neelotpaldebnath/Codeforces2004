@@ -1,0 +1,23 @@
+<h2><a href="https://codeforces.com/contest/2264/problem/D" target="_blank" rel="noopener noreferrer">2264D — Dr. Agos's Dark Mode</a></h2>
+
+| | |
+|---|---|
+| **Difficulty** | Unrated |
+| **Language** | PyPy 3-64 |
+| **Verdict** | ✅ Accepted |
+| **Problem Link** | [Codeforces 2264D](https://codeforces.com/contest/2264/problem/D) |
+
+## Topics
+`brute force` `constructive algorithms` `math` `strings`
+
+---
+
+## Problem Statement
+
+<div class="header"><div class="title">D. Dr. Agos's Dark Mode</div><div class="time-limit"><div class="property-title">time limit per test</div>2 seconds</div><div class="memory-limit"><div class="property-title">memory limit per test</div>256 megabytes</div><div class="input-file input-standard"><div class="property-title">input</div>standard input</div><div class="output-file output-standard"><div class="property-title">output</div>standard output</div></div><div><p>Someone has chopped up Dr. Agos's chickens. Furious, he turns to the one thing that still brings him comfort: his OLED screen. Today, he wants almost all of it black.</p><p>The screen has a single row of $$$n$$$ pixels. Its pattern is represented by a binary string $$$s$$$; $$$s_i = 0$$$ means that the $$$i$$$-th pixel is dark, and $$$s_i = 1$$$ means that it is lit.</p><p>Dr. Agos finds a contiguous segment of pixels <span class="tex-font-style-it">irritating</span> if, when read from left to right as a binary integer, its value is divisible by $$$3$$$. More precisely, the segment from position $$$l$$$ to position $$$r$$$ ($$$1 \le l \le r \le n$$$) has value $$$$$$ \sum_{i=l}^{r} s_i \cdot 2^{r-i}. $$$$$$ Leading zeroes are allowed. A segment consisting only of dark pixels has value $$$0$$$, which is also divisible by $$$3$$$.</p><p>Let $$$f(s)$$$ be the number of irritating segments. Segments with different pairs of endpoints $$$(l,r)$$$ are counted separately, even if their pixel patterns are identical.</p><p>Dr. Agos wants a pattern with at most three lit pixels that minimizes $$$f(s)$$$ among all binary strings of length $$$n$$$, including strings with more than three ones. Help him construct such a pattern.</p><p>We can show that an answer always exists.</p></div><div class="input-specification"><div class="section-title">Input</div><p>Each test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \le t \le 10^4$$$). The description of the test cases follows.</p><p>The only line of each test case contains a single integer $$$n$$$ ($$$1 \le n \le 2 \cdot 10^5$$$) — the number of pixels in the row.</p><p>It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2 \cdot 10^5$$$.</p></div><div class="output-specification"><div class="section-title">Output</div><p>For each test case, print a binary string $$$s$$$ of length $$$n$$$ describing Dr. Agos's screen. It must contain at most three ones and minimize $$$f(s)$$$ among all binary strings of length $$$n$$$.</p><p>If there are multiple solutions, print any of them.</p></div><div class="sample-tests"><div class="section-title">Example</div><div class="sample-test"><div class="input"><div class="title">Input<div title="Copy" data-clipboard-target="#id009063762196896741" id="id0010360794158636621" class="input-output-copier">Copy</div></div><pre id="id009063762196896741"><div class="test-example-line test-example-line-even test-example-line-0">6</div><div class="test-example-line test-example-line-odd test-example-line-1">1</div><div class="test-example-line test-example-line-even test-example-line-2">2</div><div class="test-example-line test-example-line-odd test-example-line-3">3</div><div class="test-example-line test-example-line-even test-example-line-4">4</div><div class="test-example-line test-example-line-odd test-example-line-5">5</div><div class="test-example-line test-example-line-even test-example-line-6">6</div></pre></div><div class="output"><div class="title">Output<div title="Copy" data-clipboard-target="#id005222970506983671" id="id00005051310831096445" class="input-output-copier">Copy</div></div><pre id="id005222970506983671">1
+11
+101
+0101
+10101
+010100
+</pre></div></div></div><div class="note"><div class="section-title">Note</div><p>For $$$n=1$$$, Dr. Agos can light the only pixel, giving $$$s=\mathtt{1}$$$. The only segment has value $$$1$$$, so it is not irritating and $$$f(s)=0$$$.</p><p>For $$$n=2$$$, he can light both pixels, giving $$$s=\mathtt{11}$$$. The whole row has binary value $$$3$$$ and is irritating, while each individual pixel has value $$$1$$$. Thus, $$$f(s)=1$$$. Every binary string of length $$$2$$$ has at least one irritating segment, so this is optimal.</p><p>The displayed patterns are not necessarily unique.</p></div>
