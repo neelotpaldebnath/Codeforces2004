@@ -1,0 +1,33 @@
+import sys
+ 
+def process():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+        
+    qrTNum = int(input_data[0])
+    idx = 1
+    out = []
+    
+    for _ in range(qrTNum):
+        n = int(input_data[idx])
+        a = input_data[idx+1:idx+1+n]
+        idx += n + 1
+        
+        zero_count = a.count('0')
+        
+        if zero_count < 2:
+            out.append("-1")
+        else:
+            ops = 0
+            if a[0] != '0':
+                ops += 1
+            if a[-1] != '0':
+                ops += 1
+            out.append(str(ops))
+            
+    print('
+'.join(out))
+ 
+if __name__ == '__main__':
+    process()
