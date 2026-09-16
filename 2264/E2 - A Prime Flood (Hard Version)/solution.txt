@@ -1,0 +1,134 @@
+import sys
+ 
+MOD = 998244353
+MAXN = 300000
+SHIFT = 19
+MASK = (1 << SHIFT) - 1
+ 
+ 
+def build_rows():
+    rad = [1] * (MAXN + 1)
+ 
+    for p in range(2, MAXN + 1):
+        if rad[p] == 1:
+            for x in range(p, MAXN + 1, p):
+                rad[x] *= p
+ 
+    rows = [[0] for _ in range(MAXN + 1)]
+ 
+    for x in range(1, MAXN + 1):
+        rows[x][0] = (x << SHIFT) | x
+ 
+    cur = list(range(MAXN + 1))
+ 
+    for y in range(2, MAXN + 1):
+        r = rad[y]
+        x = ((y - 1) // r) * r
+        encoded_y = y << SHIFT
+ 
+        while x >= r:
+            value = cur[x - 1]
+ 
+            if value != cur[x]:
+                cur[x] = value
+                rows[x].append(encoded_y | value)
+ 
+            x -= r
+ 
+    return rows
+ 
+ 
+def build_powers():
+    p2 = [1] * (MAXN + 1)
+    ip2 = [1] * (MAXN + 1)
+ 
+    inv2 = (MOD + 1) // 2
+ 
+    for i in range(1, MAXN + 1):
+        p2[i] = (p2[i - 1] * 2) % MOD
+        ip2[i] = (ip2[i - 1] * inv2) % MOD
+ 
+    return p2, ip2
+ 
+ 
+def solve():
+    input = sys.stdin.readline
+ 
+    rows = build_rows()
+    p2, ip2 = build_powers()
+ 
+    t = int(input())
+    out = []
+ 
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+ 
+        freq = [0] * (n + 1)
+ 
+        for v in a:
+            freq[v] += 1
+ 
+        prefix_count = [0] * (n + 1)
+        right_prefix = [0] * (n + 1)
+ 
+        before = 0
+        ans = 0
+ 
+        for x in range(1, n + 1):
+            cnt = freq[x]
+            ways = p2[cnt] - 1
+ 
+            right_weight = ways * p2[before] % MOD
+ 
+            right_prefix[x] = (right_prefix[x - 1] + right_weight) % MOD
+ 
+            ans = (ans + x * ways) % MOD
+ 
+            before += cnt
+            prefix_count[x] = before
+ 
+        def range_sum(left, right):
+            if left > right:
+                return 0
+            return (right_prefix[right] - right_prefix[left - 1]) % MOD
+ 
+        present = [x for x in range(1, n + 1) if freq[x]]
+ 
+        for x in present:
+            cnt_x = freq[x]
+            ways_x = p2[cnt_x] - 1
+ 
+            left_weight = ways_x * ip2[prefix_count[x]] % MOD
+ 
+            row = rows[x]
+            row_sum = 0
+ 
+            for i, encoded in enumerate(row):
+                pos = encoded >> SHIFT
+                value = encoded & MASK
+ 
+                left = max(x + 1, pos)
+ 
+                if left > n:
+                    break
+ 
+                if i + 1 < len(row):
+                    right = min(n, (row[i + 1] >> SHIFT) - 1)
+                else:
+                    right = n
+ 
+                if left <= right:
+                    segment_sum = range_sum(left, right)
+                    row_sum = (row_sum + value * segment_sum) % MOD
+ 
+            ans = (ans + left_weight * row_sum) % MOD
+ 
+        out.append(str(ans))
+ 
+    sys.stdout.write("
+".join(out))
+ 
+ 
+if __name__ == "__main__":
+    solve()
