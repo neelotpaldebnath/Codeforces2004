@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 14 | 17 |
+| 15 | 19 |
 
 ---
 
@@ -15,6 +15,7 @@
 - [2-sat](#2-sat) (1)
 - [binary search](#binary-search) (1)
 - [brute force](#brute-force) (2)
+- [combinatorics](#combinatorics) (1)
 - [constructive algorithms](#constructive-algorithms) (4)
 - [data structures](#data-structures) (4)
 - [dfs and similar](#dfs-and-similar) (2)
@@ -25,8 +26,9 @@
 - [greedy](#greedy) (5)
 - [implementation](#implementation) (1)
 - [interactive](#interactive) (1)
-- [math](#math) (7)
+- [math](#math) (8)
 - [matrices](#matrices) (1)
+- [sortings](#sortings) (1)
 - [trees](#trees) (2)
 - [two pointers](#two-pointers) (2)
 
@@ -50,6 +52,12 @@
 |---|---------|------------|----------|
 | 2258B1 | [Carrot Chopdown (Easy Version)](https://codeforces.com/contest/2258/problem/B1) | 900 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2258/B1%20-%20Carrot%20Chopdown%20(Easy%20Version)/solution.cpp) |
 | 2258B2 | [Carrot Chopdown (Hard Version)](https://codeforces.com/contest/2258/problem/B2) | 1600 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2258/B2%20-%20Carrot%20Chopdown%20(Hard%20Version)/solution.cpp) |
+
+### combinatorics
+
+| # | Problem | Difficulty | Solution |
+|---|---------|------------|----------|
+| 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
 
 ### constructive algorithms
 
@@ -136,12 +144,19 @@
 | 2259F | [Binary Bubble Sort Inversions](https://codeforces.com/contest/2259/problem/F) | 1800 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/F%20-%20Binary%20Bubble%20Sort%20Inversions/solution.txt) |
 | 2259G | [Index Removal](https://codeforces.com/contest/2259/problem/G) | 1900 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/G%20-%20Index%20Removal/solution.txt) |
 | 2259H | [Treasure Map Destruction (Counting Version)](https://codeforces.com/contest/2259/problem/H) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/H%20-%20Treasure%20Map%20Destruction%20(Counting%20Version)/solution.txt) |
+| 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
 
 ### matrices
 
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 2257F2 | [Beaver's Jumping Track (Hard Version)](https://codeforces.com/contest/2257/problem/F2) | 2700 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2257/F2%20-%20Beaver's%20Jumping%20Track%20(Hard%20Version)/solution.cpp) |
+
+### sortings
+
+| # | Problem | Difficulty | Solution |
+|---|---------|------------|----------|
+| 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
 
 ### trees
 
