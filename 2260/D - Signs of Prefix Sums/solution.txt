@@ -1,0 +1,153 @@
+import sys
+ 
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    qrTNum = int(input_data[0])
+    ptr = 1
+    out = []
+    
+    def check(K, s):
+        if K == 1:
+            L, R = 0, 0
+            for i, c in enumerate(s, 1):
+                L_prime = L - 1
+                R_prime = R + 1
+                req_parity = i % 2
+                
+                if c == '+':
+                    start = max(1, L_prime)
+                    if start % 2 != req_parity:
+                        start += 1
+                    end = R_prime
+                    if end % 2 != req_parity:
+                        end -= 1
+                    if start > end:
+                        return False
+                    L, R = start, end
+                    
+                elif c == '-':
+                    start = L_prime
+                    if start % 2 != req_parity:
+                        start += 1
+                    end = min(-1, R_prime)
+                    if end % 2 != req_parity:
+                        end -= 1
+                    if start > end:
+                        return False
+                    L, R = start, end
+                    
+                else:
+                    if req_parity != 0:
+                        return False
+                    if not (L_prime <= 0 <= R_prime):
+                        return False
+                    L, R = 0, 0
+            return True
+ 
+        L, R = 0, 0
+        X = None
+        
+        for c in s:
+            if X is not None:
+                L_prime = L - K
+                R_prime = R + K
+                X_prime = None
+            elif L < R:
+                L_prime = L - K
+                R_prime = R + K
+                X_prime = None
+            else:
+                V = L
+                L_prime = V - K
+                R_prime = V + K
+                X_prime = V
+                
+            if c == '+':
+                nL = max(1, L_prime)
+                nR = R_prime
+                if nL > nR:
+                    return False
+                
+                if X_prime is not None and nL <= X_prime <= nR:
+                    if nL == nR == X_prime:
+                        return False
+                    elif nL == X_prime < nR:
+                        L = X_prime + 1
+                        R = nR
+                        X = None
+                    elif nL < X_prime == nR:
+                        L = nL
+                        R = X_prime - 1
+                        X = None
+                    else:
+                        L = nL
+                        R = nR
+                        X = X_prime
+                else:
+                    L = nL
+                    R = nR
+                    X = None
+                    
+            elif c == '-':
+                nL = L_prime
+                nR = min(-1, R_prime)
+                if nL > nR:
+                    return False
+                
+                if X_prime is not None and nL <= X_prime <= nR:
+                    if nL == nR == X_prime:
+                        return False
+                    elif nL == X_prime < nR:
+                        L = X_prime + 1
+                        R = nR
+                        X = None
+                    elif nL < X_prime == nR:
+                        L = nL
+                        R = X_prime - 1
+                        X = None
+                    else:
+                        L = nL
+                        R = nR
+                        X = X_prime
+                else:
+                    L = nL
+                    R = nR
+                    X = None
+                    
+            else:
+                if L_prime <= 0 <= R_prime and X_prime != 0:
+                    L = 0
+                    R = 0
+                    X = None
+                else:
+                    return False
+                    
+        return True
+ 
+    for _ in range(qrTNum):
+        n = int(input_data[ptr])
+        s = input_data[ptr + 1]
+        ptr += 2
+        
+        low = 1
+        high = n + 2
+        ans = -1
+        
+        while low <= high:
+            mid = (low + high) // 2
+            if check(mid, s):
+                ans = mid
+                high = mid - 1
+            else:
+                low = mid + 1
+                
+        out.append(str(ans))
+        
+    print('
+'.join(out))
+ 
+if __name__ == '__main__':
+    solve()
