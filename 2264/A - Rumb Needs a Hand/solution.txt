@@ -1,0 +1,20 @@
+import sys
+ 
+input = sys.stdin.readline
+ 
+t = int(input())
+ 
+for _ in range(t):
+    n = int(input())
+    p = list(map(int, input().split()))
+ 
+    # Positions where the permutation is not already correct
+    pos = [i + 1 for i in range(n) if p[i] != i + 1]
+ 
+    # Their values must be the reverse of these positions
+    values = [p[i - 1] for i in pos]
+ 
+    if values == pos[::-1]:
+        print("YES")
+    else:
+        print("NO")
