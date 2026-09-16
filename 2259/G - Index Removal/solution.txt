@@ -1,0 +1,63 @@
+import sys
+ 
+def solve():
+    # Read all input from standard input
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    idx = 1
+    out = []
+    
+    for _ in range(t):
+        n = int(input_data[idx])
+        k = int(data_k := input_data[idx+1])
+        idx += 2
+        
+        a = []
+        for _ in range(n):
+            a.append(int(input_data[idx]))
+            idx += 1
+            
+        # v_j = a_j - j * k
+        v = [0] * (n + 1)
+        for j in range(1, n + 1):
+            v[j] = a[j-1] - j * k
+            
+        # Prefix sums of v for O(1) range sum queries
+        pref = [0] * (n + 1)
+        for j in range(1, n + 1):
+            pref[j] = pref[j-1] + v[j]
+            
+        ans = [0] * n
+        
+        # i=1 and i=n do not break validity because the remaining array maintains the property
+        for i in range(2, n):
+            D_i = v[i-1] - k
+            
+            # Binary search for the largest R in [i+1, n] such that v[R] > D_i
+            low = i + 1
+            high = n
+            R = i
+            while low <= high:
+                mid = (low + high) // 2
+                if v[mid] > D_i:
+                    R = mid
+                    low = mid + 1
+                else:
+                    high = mid - 1
+                    
+            # If we found elements that exceed the bound, compute the operations difference
+            if R >= i + 1:
+                sum_v = pref[R] - pref[i]
+                count = R - i
+                ans[i-1] = sum_v - count * D_i
+                
+        out.append(" ".join(map(str, ans)))
+        
+    print("
+".join(out))
+ 
+if __name__ == '__main__':
+    solve()
