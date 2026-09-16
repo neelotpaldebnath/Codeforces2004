@@ -1,0 +1,77 @@
+import sys
+ 
+ 
+def balanced(s):
+    # Number of prefix sums with remainder 0, 1, 2.
+    cnt = [1, 0, 0]
+    rem = 0
+ 
+    for i, ch in enumerate(s):
+        if ch == '1':
+            # Position is 1-indexed.
+            # At odd position: add -1 == +2 (mod 3)
+            # At even position: add +1
+            if i % 2 == 0:
+                rem = (rem + 2) % 3
+            else:
+                rem = (rem + 1) % 3
+ 
+        cnt[rem] += 1
+ 
+    return max(cnt) - min(cnt) <= 1
+ 
+ 
+def solve(n):
+    if n == 1:
+        return "1"
+ 
+    if n == 2:
+        return "10"
+ 
+    # Try the few positions suggested by the construction:
+    # first 1 around n/3
+    # second 1 around 2n/3
+    # optional third 1 at n
+    for first in range(n // 3, n // 3 + 2):
+        for second in range(2 * n // 3, 2 * n // 3 + 2):
+            for last in (False, True):
+ 
+                # Positions are 1-indexed.
+                if first < 1 or second < 1:
+                    continue
+ 
+                if first >= second:
+                    continue
+ 
+                if last and second >= n:
+                    continue
+ 
+                s = ['0'] * n
+ 
+                s[first - 1] = '1'
+                s[second - 1] = '1'
+ 
+                if last:
+                    s[n - 1] = '1'
+ 
+                s = ''.join(s)
+ 
+                if balanced(s):
+                    return s
+ 
+    # The construction guarantees that we reach a solution.
+    return ""
+ 
+ 
+def main():
+    input = sys.stdin.readline
+ 
+    t = int(input())
+ 
+    for _ in range(t):
+        n = int(input())
+        print(solve(n))
+ 
+ 
+if __name__ == "__main__":
+    main()
