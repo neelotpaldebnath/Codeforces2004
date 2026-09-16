@@ -1,0 +1,32 @@
+import sys
+import heapq
+ 
+input = sys.stdin.readline
+ 
+t = int(input())
+ 
+for _ in range(t):
+    n, m = map(int, input().split())
+    a = list(map(int, input().split()))
+ 
+    k = m - 1
+    heap = []
+    total = 0
+    ans = -10**30
+ 
+    for x in a:
+        # x is chosen as the last element
+        if len(heap) == k:
+            ans = max(ans, m * x - total)
+ 
+        # Add x as a possible previous element
+        if k > 0:
+            heapq.heappush(heap, -x)
+            total += x
+ 
+            # Keep only k smallest elements
+            if len(heap) > k:
+                removed = -heapq.heappop(heap)
+                total -= removed
+ 
+    print(ans)
