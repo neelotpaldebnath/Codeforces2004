@@ -1,0 +1,120 @@
+import sys
+import heapq
+ 
+def solve():
+    data = list(map(int, sys.stdin.buffer.read().split()))
+    it = iter(data)
+ 
+    t = next(it)
+    out = []
+ 
+    for _ in range(t):
+        n = next(it)
+        capital = next(it)
+ 
+        projects = []
+        segments = [[] for _ in range(n)]
+        ptr = [0] * n
+        height = [0] * n
+ 
+        for i in range(n):
+            m = next(it)
+ 
+            cost = [next(it) for _ in range(m)]
+            reward = [next(it) for _ in range(m)]
+ 
+            projects.append((cost, reward))
+ 
+            pref = [0] * (m + 1)
+ 
+            for j in range(m):
+                pref[j + 1] = pref[j] + reward[j] - cost[j]
+ 
+            stack = []
+            nxt = [-1] * (m + 1)
+ 
+            for j in range(m, -1, -1):
+                while stack and pref[stack[-1]] < pref[j]:
+                    stack.pop()
+ 
+                if stack:
+                    nxt[j] = stack[-1]
+ 
+                stack.append(j)
+ 
+            start = 0
+ 
+            while start < m:
+                end = nxt[start]
+ 
+                if end == -1:
+                    break
+ 
+                base = pref[start]
+                need = 0
+ 
+                for j in range(start + 1, end + 1):
+                    required = cost[j - 1] + base - pref[j - 1]
+                    if required > need:
+                        need = required
+ 
+                gain = pref[end] - base
+ 
+                segments[i].append((need, gain, end))
+                start = end
+ 
+        pq = []
+ 
+        for i in range(n):
+            if segments[i]:
+                need, gain, end = segments[i][0]
+                heapq.heappush(pq, (need, i, 0))
+ 
+        while pq:
+            need, i, s = pq[0]
+ 
+            if need > capital:
+                break
+ 
+            heapq.heappop(pq)
+ 
+            need, gain, end = segments[i][s]
+ 
+            capital += gain
+            height[i] = end
+            ptr[i] = s + 1
+ 
+            if ptr[i] < len(segments[i]):
+                need2, gain2, end2 = segments[i][ptr[i]]
+                heapq.heappush(pq, (need2, i, ptr[i]))
+ 
+        best_height = 0
+        best_index = 0
+ 
+        for i in range(n):
+            cost, reward = projects[i]
+ 
+            h = height[i]
+            money = capital
+ 
+            while h < len(cost):
+                if money < cost[h]:
+                    break
+ 
+                money += reward[h] - cost[h]
+                h += 1
+ 
+            if h > best_height:
+                best_height = h
+                best_index = i
+            elif h == best_height and i < best_index:
+                best_index = i
+ 
+        out.append(f"{best_height} {best_index + 1}")
+ 
+    sys.stdout.write("
+".join(out))
+ 
+ 
+if __name__ == "__main__":
+    solve()
