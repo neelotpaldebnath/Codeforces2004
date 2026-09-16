@@ -1,0 +1,79 @@
+import sys
+ 
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    idx = 1
+    out = []
+    
+    for _ in range(t):
+        n = int(input_data[idx])
+        a = [int(x) for x in input_data[idx + 1 : idx + 1 + n]]
+        idx += 1 + n
+        
+        # Collect positions of fixed 1s
+        ones = [i for i in range(n) if a[i] == 1]
+        
+        best_len = 0
+        best_L, best_R = -1, -1
+        
+        if not ones:
+            # Case 1: No fixed 1s present
+            non_zeros = [i for i in range(n) if a[i] != 0]
+            if non_zeros:
+                L = non_zeros[0]
+                R = non_zeros[-1]
+                best_len = R - L + 1
+                best_L, best_R = L, R
+        else:
+            # Case 2: Fixed 1s exist
+            # Region before the first fixed 1
+            p1 = ones[0]
+            for i in range(p1 + 1):
+                if a[i] != 0:
+                    length = p1 - i + 1
+                    if length > best_len:
+                        best_len = length
+                        best_L, best_R = i, p1
+                    break
+                    
+            # Regions between adjacent fixed 1s
+            for k in range(len(ones) - 1):
+                L = ones[k]
+                R = ones[k + 1]
+                length = R - L + 1
+                if length > best_len:
+                    best_len = length
+                    best_L, best_R = L, R
+                    
+            # Region after the last fixed 1
+            pm = ones[-1]
+            for i in range(n - 1, pm - 1, -1):
+                if a[i] != 0:
+                    length = i - pm + 1
+                    if length > best_len:
+                        best_len = length
+                        best_L, best_R = pm, i
+                    break
+                    
+        # Construct the final array
+        ans = [0] * n
+        for i in range(n):
+            if a[i] != -1:
+                ans[i] = a[i]
+            else:
+                if i == best_L or i == best_R:
+                    ans[i] = 1
+                else:
+                    ans[i] = 0
+                    
+        out.append(" ".join(map(str, ans)))
+        
+    print("
+".join(out))
+ 
+if __name__ == '__main__':
+    solve()
