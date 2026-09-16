@@ -1,0 +1,80 @@
+import sys
+ 
+ 
+def const_expr(x: int) -> str:
+    """
+    Build the constant x using only n, /, +, *, and parentheses.
+    No numeric literals are used in the generated DC expression.
+    """
+    if x == 0:
+        return "(n-n)"
+ 
+    one = "n/n"
+ 
+    # Unary form is shorter for very small constants.
+    unary = "(" + "+".join([one] * x) + ")"
+ 
+    bits = bin(x)[2:]
+ 
+    # 2 = (n+n)/n
+    two = "(n+n)/n"
+ 
+    expr = one
+    for bit in bits[1:]:
+        expr = f"({expr}*{two}"
+        if bit == "1":
+            expr += f"+{one}"
+        expr += ")"
+ 
+    return unary if len(unary) < len(expr) else expr
+ 
+ 
+def indicator(i: int) -> str:
+    # round(n / (n+i))
+    return f"round(n/(n+{const_expr(i)}))"
+ 
+ 
+def factor(i: int) -> str:
+    """
+    F_i = 1 + (i-1) * I_i
+    = i if n >= i, otherwise 1.
+    """
+    return (
+        f"(n/n+({const_expr(i-1)})*"
+        f"{indicator(i)})"
+    )
+ 
+ 
+def build(k: int) -> str:
+    # D_1 = 0
+    expr = "(n-n)"
+ 
+    # D_i = i*D_(i-1) + (-1)^i
+    #
+    # For the actual input n:
+    #   i <= n  -> factor(i)=i and indicator(i)=1
+    #   i >  n  -> factor(i)=1 and indicator(i)=0
+    #
+    # So after i=n, the expression remains D_n.
+ 
+    for i in range(2, k + 1):
+        term = indicator(i)
+ 
+        if i % 2 == 0:
+            expr = f"({factor(i)}*{expr}+{term})"
+        else:
+            expr = f"({factor(i)}*{expr}-{term})"
+ 
+    return expr
+ 
+ 
+def main():
+    k = int(sys.stdin.readline())
+    ans = build(k)
+ 
+    # Guaranteed <= 10000 for k <= 50.
+    print(ans)
+ 
+ 
+if __name__ == "__main__":
+    main()
