@@ -1,0 +1,60 @@
+import sys
+ 
+MOD = 998244353
+MAXN = 200000
+ 
+# Precompute factorials and modular inverses
+fact = [1] * (MAXN + 1)
+inv = [1] * (MAXN + 1)
+ 
+for i in range(1, MAXN + 1):
+    fact[i] = fact[i - 1] * i % MOD
+ 
+# Linear modular inverse
+for i in range(2, MAXN + 1):
+    inv[i] = MOD - (MOD // i) * inv[MOD % i] % MOD
+ 
+ 
+def solve():
+    input = sys.stdin.readline
+ 
+    t = int(input())
+ 
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+ 
+        # One skater -> no edges, hence cost 0
+        if n == 1:
+            print(0)
+            continue
+ 
+        a.sort()
+ 
+        total_trees = fact[n - 1]
+ 
+        # suffix = sum of elements strictly to the right
+        suffix = a[-1]
+        ans = 0
+ 
+        # Process i = n-2 ... 0
+        for i in range(n - 2, -1, -1):
+            c = n - i - 1  # number of possible parents
+ 
+            # Sum of (parent_rating - child_rating)
+            contribution = suffix - c * a[i]
+ 
+            # Each possible parent choice happens in:
+            # (n-1)! / c
+            ways_per_parent = total_trees * inv[c] % MOD
+ 
+            ans += (ways_per_parent * (contribution % MOD)) % MOD
+            ans %= MOD
+ 
+            suffix += a[i]
+ 
+        print(ans)
+ 
+ 
+if __name__ == "__main__":
+    solve()
