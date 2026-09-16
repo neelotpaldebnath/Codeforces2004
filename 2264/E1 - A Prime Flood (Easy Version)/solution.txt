@@ -1,0 +1,77 @@
+import sys
+ 
+MOD = 998244353
+ 
+def solve():
+    input = sys.stdin.readline
+ 
+    t = int(input())
+    tests = []
+    max_n = 0
+ 
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+        tests.append((n, a))
+        max_n = max(max_n, n)
+ 
+    need = [1] * (max_n + 1)
+ 
+    for p in range(2, max_n + 1):
+        if need[p] == 1:
+            for x in range(p, max_n + 1, p):
+                need[x] *= p
+ 
+    pow2 = [1] * (max_n + 1)
+    for i in range(1, max_n + 1):
+        pow2[i] = (pow2[i - 1] * 2) % MOD
+ 
+    out = []
+ 
+    for n, a in tests:
+        freq = [0] * (n + 1)
+ 
+        for v in a:
+            freq[v] += 1
+ 
+        prefix = [0] * (n + 1)
+        for v in range(1, n + 1):
+            prefix[v] = prefix[v - 1] + freq[v]
+ 
+        prev = [0] * (n + 1)
+        cur = [0] * (n + 1)
+ 
+        ans = 0
+ 
+        for x in range(1, n + 1):
+            cur[x] = x
+ 
+            choose_x = pow2[freq[x]] - 1
+ 
+            if freq[x]:
+                ans = (ans + x * choose_x) % MOD
+ 
+            for y in range(x + 1, n + 1):
+                if x % need[y] == 0:
+                    cur[y] = prev[y - 1]
+                else:
+                    cur[y] = cur[y - 1]
+ 
+                if freq[y]:
+                    choose_y = pow2[freq[y]] - 1
+                    middle = prefix[y - 1] - prefix[x]
+ 
+                    ways = choose_x * choose_y % MOD
+                    ways = ways * pow2[middle] % MOD
+ 
+                    ans = (ans + ways * cur[y]) % MOD
+ 
+            prev, cur = cur, prev
+ 
+        out.append(str(ans))
+ 
+    sys.stdout.write("
+".join(out))
+ 
+if __name__ == "__main__":
+    solve()
