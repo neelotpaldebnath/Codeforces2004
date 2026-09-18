@@ -1,0 +1,176 @@
+import sys
+from collections import deque
+ 
+input = sys.stdin.buffer.readline
+ 
+ 
+def compute_inv(mat):
+    n = len(mat)
+    empty = [1] * n
+    basis = [0] * n
+    inv = [0] * n
+ 
+    for i in range(n):
+        cur = mat[i]
+        cur_inv = 1 << i
+ 
+        for j in range(n):
+            if (cur >> j) & 1:
+                if empty[j]:
+                    basis[j] = cur
+                    inv[j] = cur_inv
+                    empty[j] = 0
+                    break
+                cur ^= basis[j]
+                cur_inv ^= inv[j]
+ 
+    for i in range(n):
+        if empty[i]:
+            return False
+ 
+    for i in range(n - 1, 0, -1):
+        bi = basis[i]
+        ii = inv[i]
+ 
+        for j in range(i):
+            if (basis[j] >> i) & 1:
+                basis[j] ^= bi
+                inv[j] ^= ii
+ 
+    return inv
+ 
+ 
+def solve():
+    n, m = map(int, input().split())
+ 
+    mat = [0] * n
+ 
+    for _ in range(m):
+        x, y = map(int, input().split())
+        x -= 1
+        y -= 1
+        mat[x] |= 1 << y
+ 
+    inv = compute_inv(mat)
+ 
+    cnts = [0] * (2 * n)
+ 
+    for i in range(n):
+        bits = mat[i]
+ 
+        while bits:
+            bit = bits & -bits
+            j = bit.bit_length() - 1
+            cnts[i] += 1
+            cnts[n + j] += 1
+            bits ^= bit
+ 
+    mustq = deque()
+    freeq = deque()
+    centers = []
+    moves = []
+ 
+    while True:
+        while len(mustq) + len(freeq) < n:
+            best_rc = 0
+ 
+            for rc in range(2 * n):
+                if cnts[rc] >= cnts[best_rc]:
+                    best_rc = rc
+ 
+            if cnts[best_rc] == 0:
+                break
+ 
+            x = -1
+            y = -1
+ 
+            if best_rc < n:
+                x = best_rc
+ 
+                for j in range(n):
+                    if ((mat[x] >> j) & 1) and ((inv[j] >> x) & 1):
+                        y = j
+                        break
+            else:
+                y = best_rc - n
+ 
+                for j in range(n):
+                    if ((mat[j] >> y) & 1) and ((inv[y] >> j) & 1):
+                        x = j
+                        break
+ 
+            centers.append((x, y))
+ 
+            must = []
+            free = []
+ 
+            for j in range(n):
+                if ((mat[x] >> j) & 1) and j != y:
+                    must.append((x, j))
+                    mat[x] ^= 1 << j
+                    cnts[x] -= 1
+                    cnts[n + j] -= 1
+ 
+            for j in range(n):
+                if ((mat[j] >> y) & 1) and j != x:
+                    free.append((j, y))
+                    mat[j] ^= 1 << y
+                    cnts[j] -= 1
+                    cnts[n + y] -= 1
+ 
+            mat[x] ^= 1 << y
+            cnts[x] -= 1
+            cnts[n + y] -= 1
+ 
+            if best_rc < n:
+                must, free = free, must
+ 
+            mustq.extend(must)
+            freeq.extend(free)
+ 
+            row = inv[y]
+ 
+            for j in range(n):
+                if cnts[n + j] > 0 and ((inv[j] >> x) & 1):
+                    inv[j] ^= row
+ 
+        left = n
+        move = []
+ 
+        while left and mustq:
+            move.append(mustq.popleft())
+            left -= 1
+ 
+        while left and freeq:
+            move.append(freeq.popleft())
+            left -= 1
+ 
+        while left and centers:
+            move.append(centers.pop())
+            left -= 1
+ 
+        moves.append(move)
+ 
+        if not centers:
+            break
+ 
+    out = [str(len(moves))]
+ 
+    for move in moves:
+        out.append(str(len(move)))
+ 
+        for x, y in move:
+            out.append(f"{x + 1} {y + 1}")
+ 
+    return "
+".join(out)
+ 
+ 
+t = int(input())
+ans = []
+ 
+for _ in range(t):
+    ans.append(solve())
+ 
+sys.stdout.write("
+".join(ans))
