@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 36 | 23 |
+| 39 | 23 |
 
 ---
 
@@ -16,19 +16,19 @@
 - [binary search](#binary-search) (3)
 - [bitmasks](#bitmasks) (1)
 - [brute force](#brute-force) (8)
-- [combinatorics](#combinatorics) (5)
-- [constructive algorithms](#constructive-algorithms) (9)
+- [combinatorics](#combinatorics) (6)
+- [constructive algorithms](#constructive-algorithms) (11)
 - [data structures](#data-structures) (9)
 - [dfs and similar](#dfs-and-similar) (5)
 - [divide and conquer](#divide-and-conquer) (1)
-- [dp](#dp) (9)
+- [dp](#dp) (10)
 - [dsu](#dsu) (3)
 - [games](#games) (1)
-- [graphs](#graphs) (4)
-- [greedy](#greedy) (9)
-- [implementation](#implementation) (7)
+- [graphs](#graphs) (5)
+- [greedy](#greedy) (11)
+- [implementation](#implementation) (8)
 - [interactive](#interactive) (1)
-- [math](#math) (16)
+- [math](#math) (18)
 - [matrices](#matrices) (2)
 - [number theory](#number-theory) (5)
 - [sortings](#sortings) (3)
@@ -76,6 +76,7 @@
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 2260G | [Sortable Permutations](https://codeforces.com/contest/2260/problem/G) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/G%20-%20Sortable%20Permutations/solution.txt) |
+| 2262C | [Traveling the World](https://codeforces.com/contest/2262/problem/C) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/C%20-%20Traveling%20the%20World/solution.txt) |
 | 2262E | [Paired Bracket Sequences](https://codeforces.com/contest/2262/problem/E) | Unrated | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/E%20-%20Paired%20Bracket%20Sequences/solution.cpp) |
 | 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
 | 2264E1 | [A Prime Flood (Easy Version)](https://codeforces.com/contest/2264/problem/E1) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/E1%20-%20A%20Prime%20Flood%20(Easy%20Version)/solution.txt) |
@@ -91,6 +92,8 @@
 | 2259E | [Treasure Map Destruction (Constructive Version)](https://codeforces.com/contest/2259/problem/E) | 1500 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/E%20-%20Treasure%20Map%20Destruction%20(Constructive%20Version)/solution.txt) |
 | 2260D | [Signs of Prefix Sums](https://codeforces.com/contest/2260/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/D%20-%20Signs%20of%20Prefix%20Sums/solution.txt) |
 | 2260E | [Cyclic Balance](https://codeforces.com/contest/2260/problem/E) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/E%20-%20Cyclic%20Balance/solution.txt) |
+| 2262A1 | [Floor of MEX (Easy Version)](https://codeforces.com/contest/2262/problem/A1) | 1200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/A1%20-%20Floor%20of%20MEX%20(Easy%20Version)/solution.txt) |
+| 2262C | [Traveling the World](https://codeforces.com/contest/2262/problem/C) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/C%20-%20Traveling%20the%20World/solution.txt) |
 | 2263B | [Min Matrices](https://codeforces.com/contest/2263/problem/B) | Unrated | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2263/B%20-%20Min%20Matrices/solution.cpp) |
 | 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
 | 2264F | [Deranged Calculator](https://codeforces.com/contest/2264/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/F%20-%20Deranged%20Calculator/solution.txt) |
@@ -136,6 +139,7 @@
 | 2259H | [Treasure Map Destruction (Counting Version)](https://codeforces.com/contest/2259/problem/H) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/H%20-%20Treasure%20Map%20Destruction%20(Counting%20Version)/solution.txt) |
 | 2260D | [Signs of Prefix Sums](https://codeforces.com/contest/2260/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/D%20-%20Signs%20of%20Prefix%20Sums/solution.txt) |
 | 2260E | [Cyclic Balance](https://codeforces.com/contest/2260/problem/E) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/E%20-%20Cyclic%20Balance/solution.txt) |
+| 2262A2 | [Floor of MEX (Hard Version)](https://codeforces.com/contest/2262/problem/A2) | 1800 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/A2%20-%20Floor%20of%20MEX%20(Hard%20Version)/solution.txt) |
 | 2264E1 | [A Prime Flood (Easy Version)](https://codeforces.com/contest/2264/problem/E1) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/E1%20-%20A%20Prime%20Flood%20(Easy%20Version)/solution.txt) |
 | 2264E2 | [A Prime Flood (Hard Version)](https://codeforces.com/contest/2264/problem/E2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/E2%20-%20A%20Prime%20Flood%20(Hard%20Version)/solution.txt) |
 
@@ -161,6 +165,7 @@
 | 2258F | [Plus Minus Tree](https://codeforces.com/contest/2258/problem/F) | 2500 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2258/F%20-%20Plus%20Minus%20Tree/solution.cpp) |
 | 2259H | [Treasure Map Destruction (Counting Version)](https://codeforces.com/contest/2259/problem/H) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/H%20-%20Treasure%20Map%20Destruction%20(Counting%20Version)/solution.txt) |
 | 2260F | [Edge Three-Coloring](https://codeforces.com/contest/2260/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/F%20-%20Edge%20Three-Coloring/solution.txt) |
+| 2262C | [Traveling the World](https://codeforces.com/contest/2262/problem/C) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/C%20-%20Traveling%20the%20World/solution.txt) |
 
 ### greedy
 
@@ -174,6 +179,8 @@
 | 2259D | [MEX Multiset](https://codeforces.com/contest/2259/problem/D) | 1200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/D%20-%20MEX%20Multiset/solution.txt) |
 | 2259E | [Treasure Map Destruction (Constructive Version)](https://codeforces.com/contest/2259/problem/E) | 1500 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/E%20-%20Treasure%20Map%20Destruction%20(Constructive%20Version)/solution.txt) |
 | 2260C | [Maximize XOR, Minimize Operations](https://codeforces.com/contest/2260/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/C%20-%20Maximize%20XOR%2C%20Minimize%20Operations/solution.txt) |
+| 2262A1 | [Floor of MEX (Easy Version)](https://codeforces.com/contest/2262/problem/A1) | 1200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/A1%20-%20Floor%20of%20MEX%20(Easy%20Version)/solution.txt) |
+| 2262C | [Traveling the World](https://codeforces.com/contest/2262/problem/C) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/C%20-%20Traveling%20the%20World/solution.txt) |
 | 2264B | [Knife's Pill Farm](https://codeforces.com/contest/2264/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/B%20-%20Knife's%20Pill%20Farm/solution.txt) |
 
 ### implementation
@@ -184,6 +191,7 @@
 | 2258B2 | [Carrot Chopdown (Hard Version)](https://codeforces.com/contest/2258/problem/B2) | 1600 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2258/B2%20-%20Carrot%20Chopdown%20(Hard%20Version)/solution.cpp) |
 | 2260A | [Monocarp's Contest](https://codeforces.com/contest/2260/problem/A) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/A%20-%20Monocarp's%20Contest/solution.txt) |
 | 2260D | [Signs of Prefix Sums](https://codeforces.com/contest/2260/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/D%20-%20Signs%20of%20Prefix%20Sums/solution.txt) |
+| 2262A2 | [Floor of MEX (Hard Version)](https://codeforces.com/contest/2262/problem/A2) | 1800 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/A2%20-%20Floor%20of%20MEX%20(Hard%20Version)/solution.txt) |
 | 2262B | [Culling Game](https://codeforces.com/contest/2262/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/B%20-%20Culling%20Game/solution.txt) |
 | 2264A | [Rumb Needs a Hand](https://codeforces.com/contest/2264/problem/A) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/A%20-%20Rumb%20Needs%20a%20Hand/solution.txt) |
 | 2264F | [Deranged Calculator](https://codeforces.com/contest/2264/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/F%20-%20Deranged%20Calculator/solution.txt) |
@@ -209,6 +217,8 @@
 | 2260B | [Monocarp and Projects](https://codeforces.com/contest/2260/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/B%20-%20Monocarp%20and%20Projects/solution.txt) |
 | 2260E | [Cyclic Balance](https://codeforces.com/contest/2260/problem/E) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/E%20-%20Cyclic%20Balance/solution.txt) |
 | 2260G | [Sortable Permutations](https://codeforces.com/contest/2260/problem/G) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/G%20-%20Sortable%20Permutations/solution.txt) |
+| 2262A2 | [Floor of MEX (Hard Version)](https://codeforces.com/contest/2262/problem/A2) | 1800 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/A2%20-%20Floor%20of%20MEX%20(Hard%20Version)/solution.txt) |
+| 2262C | [Traveling the World](https://codeforces.com/contest/2262/problem/C) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/C%20-%20Traveling%20the%20World/solution.txt) |
 | 2262E | [Paired Bracket Sequences](https://codeforces.com/contest/2262/problem/E) | Unrated | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/E%20-%20Paired%20Bracket%20Sequences/solution.cpp) |
 | 2262F | [Rank Removal](https://codeforces.com/contest/2262/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/F%20-%20Rank%20Removal/solution.txt) |
 | 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
