@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 39 | 23 |
+| 40 | 23 |
 
 ---
 
@@ -25,7 +25,7 @@
 - [dsu](#dsu) (3)
 - [games](#games) (1)
 - [graphs](#graphs) (5)
-- [greedy](#greedy) (11)
+- [greedy](#greedy) (12)
 - [implementation](#implementation) (8)
 - [interactive](#interactive) (1)
 - [math](#math) (18)
@@ -182,6 +182,7 @@
 | 2262A1 | [Floor of MEX (Easy Version)](https://codeforces.com/contest/2262/problem/A1) | 1200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/A1%20-%20Floor%20of%20MEX%20(Easy%20Version)/solution.txt) |
 | 2262C | [Traveling the World](https://codeforces.com/contest/2262/problem/C) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/C%20-%20Traveling%20the%20World/solution.txt) |
 | 2264B | [Knife's Pill Farm](https://codeforces.com/contest/2264/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/B%20-%20Knife's%20Pill%20Farm/solution.txt) |
+| 2266A | [Good Contest](https://codeforces.com/contest/2266/problem/A) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2266/A%20-%20Good%20Contest/solution.txt) |
 
 ### implementation
 
