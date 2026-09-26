@@ -1,0 +1,86 @@
+import sys
+from array import array
+ 
+MOD = 1000000007
+ 
+def solve():
+    input = sys.stdin.buffer.readline
+ 
+    n, m = map(int, input().split())
+    c = list(map(int, input().split()))
+ 
+    bits = [1 << j for j in range(20) if (m >> j) & 1]
+ 
+    st = [array('I', [0]) * (n + 1) for _ in bits]
+    dp = array('I', [0]) * (n + 1)
+ 
+    dp[0] = 1
+ 
+    for i in range(1, n + 1):
+        cur = 0
+ 
+        for k, w in enumerate(bits):
+            v = cur
+ 
+            if i >= w:
+                v += dp[i - w]
+                if v >= MOD:
+                    v -= MOD
+ 
+                if k:
+                    v += st[k - 1][i - w]
+                    if v >= MOD:
+                        v -= MOD
+ 
+            st[k][i] = v
+            cur = v
+ 
+        dp[i] = cur
+ 
+    cnt = array('I', [0]) * (n + 1)
+    cnt[0] = 1
+ 
+    for i in range(1, n + 1):
+        cur = 0
+ 
+        for k, w in enumerate(bits):
+            v = cur
+ 
+            if i >= w:
+                v += cnt[i - w]
+                if v >= MOD:
+                    v -= MOD
+ 
+                if k:
+                    v += st[k - 1][i - w]
+                    if v >= MOD:
+                        v -= MOD
+ 
+            st[k][i] = v
+            cur = v
+ 
+        v = cur + dp[i]
+        if v >= MOD:
+            v -= MOD
+ 
+        cnt[i] = v
+ 
+    ans = 0
+ 
+    for x in range(1, min(n, m) + 1):
+        if (m & x) == x:
+            ans = (ans + c[x - 1] * cnt[n - x]) % MOD
+ 
+    print(ans)
+ 
+ 
+def main():
+    input = sys.stdin.buffer.readline
+    t = int(input())
+ 
+    for _ in range(t):
+        solve()
+ 
+ 
+if __name__ == "__main__":
+    main()
