@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 40 | 23 |
+| 41 | 23 |
 
 ---
 
@@ -21,7 +21,7 @@
 - [data structures](#data-structures) (9)
 - [dfs and similar](#dfs-and-similar) (5)
 - [divide and conquer](#divide-and-conquer) (1)
-- [dp](#dp) (10)
+- [dp](#dp) (11)
 - [dsu](#dsu) (3)
 - [games](#games) (1)
 - [graphs](#graphs) (5)
@@ -142,6 +142,7 @@
 | 2262A2 | [Floor of MEX (Hard Version)](https://codeforces.com/contest/2262/problem/A2) | 1800 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/A2%20-%20Floor%20of%20MEX%20(Hard%20Version)/solution.txt) |
 | 2264E1 | [A Prime Flood (Easy Version)](https://codeforces.com/contest/2264/problem/E1) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/E1%20-%20A%20Prime%20Flood%20(Easy%20Version)/solution.txt) |
 | 2264E2 | [A Prime Flood (Hard Version)](https://codeforces.com/contest/2264/problem/E2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/E2%20-%20A%20Prime%20Flood%20(Hard%20Version)/solution.txt) |
+| 2267G | [New LRT](https://codeforces.com/contest/2267/problem/G) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/G%20-%20New%20LRT/solution.txt) |
 
 ### dsu
 
