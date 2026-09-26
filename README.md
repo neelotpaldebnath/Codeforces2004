@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 41 | 23 |
+| 42 | 23 |
 
 ---
 
@@ -14,26 +14,26 @@
 
 - [2-sat](#2-sat) (1)
 - [binary search](#binary-search) (3)
-- [bitmasks](#bitmasks) (1)
-- [brute force](#brute-force) (8)
+- [bitmasks](#bitmasks) (2)
+- [brute force](#brute-force) (9)
 - [combinatorics](#combinatorics) (6)
 - [constructive algorithms](#constructive-algorithms) (11)
-- [data structures](#data-structures) (9)
-- [dfs and similar](#dfs-and-similar) (5)
+- [data structures](#data-structures) (10)
+- [dfs and similar](#dfs-and-similar) (6)
 - [divide and conquer](#divide-and-conquer) (1)
 - [dp](#dp) (11)
 - [dsu](#dsu) (3)
 - [games](#games) (1)
 - [graphs](#graphs) (5)
-- [greedy](#greedy) (12)
+- [greedy](#greedy) (13)
 - [implementation](#implementation) (8)
 - [interactive](#interactive) (1)
 - [math](#math) (18)
 - [matrices](#matrices) (2)
 - [number theory](#number-theory) (5)
-- [sortings](#sortings) (3)
-- [strings](#strings) (1)
-- [trees](#trees) (4)
+- [sortings](#sortings) (4)
+- [strings](#strings) (2)
+- [trees](#trees) (5)
 - [two pointers](#two-pointers) (4)
 
 ---
@@ -57,6 +57,7 @@
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 2260C | [Maximize XOR, Minimize Operations](https://codeforces.com/contest/2260/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/C%20-%20Maximize%20XOR%2C%20Minimize%20Operations/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### brute force
 
@@ -70,6 +71,7 @@
 | 2260F | [Edge Three-Coloring](https://codeforces.com/contest/2260/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/F%20-%20Edge%20Three-Coloring/solution.txt) |
 | 2260G | [Sortable Permutations](https://codeforces.com/contest/2260/problem/G) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/G%20-%20Sortable%20Permutations/solution.txt) |
 | 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### combinatorics
 
@@ -111,6 +113,7 @@
 | 2259G | [Index Removal](https://codeforces.com/contest/2259/problem/G) | 1900 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/G%20-%20Index%20Removal/solution.txt) |
 | 2262B | [Culling Game](https://codeforces.com/contest/2262/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/B%20-%20Culling%20Game/solution.txt) |
 | 2264B | [Knife's Pill Farm](https://codeforces.com/contest/2264/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/B%20-%20Knife's%20Pill%20Farm/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### dfs and similar
 
@@ -121,6 +124,7 @@
 | 2259H | [Treasure Map Destruction (Counting Version)](https://codeforces.com/contest/2259/problem/H) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/H%20-%20Treasure%20Map%20Destruction%20(Counting%20Version)/solution.txt) |
 | 2260D | [Signs of Prefix Sums](https://codeforces.com/contest/2260/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/D%20-%20Signs%20of%20Prefix%20Sums/solution.txt) |
 | 2260F | [Edge Three-Coloring](https://codeforces.com/contest/2260/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/F%20-%20Edge%20Three-Coloring/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### divide and conquer
 
@@ -184,6 +188,7 @@
 | 2262C | [Traveling the World](https://codeforces.com/contest/2262/problem/C) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/C%20-%20Traveling%20the%20World/solution.txt) |
 | 2264B | [Knife's Pill Farm](https://codeforces.com/contest/2264/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/B%20-%20Knife's%20Pill%20Farm/solution.txt) |
 | 2266A | [Good Contest](https://codeforces.com/contest/2266/problem/A) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2266/A%20-%20Good%20Contest/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### implementation
 
@@ -251,12 +256,14 @@
 | 2257E | [Busy Beaver](https://codeforces.com/contest/2257/problem/E) | 2000 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2257/E%20-%20Busy%20Beaver/solution.txt) |
 | 2264A | [Rumb Needs a Hand](https://codeforces.com/contest/2264/problem/A) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/A%20-%20Rumb%20Needs%20a%20Hand/solution.txt) |
 | 2264C | [Madamant's Skating Dynasty](https://codeforces.com/contest/2264/problem/C) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/C%20-%20Madamant's%20Skating%20Dynasty/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### strings
 
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### trees
 
@@ -266,6 +273,7 @@
 | 2258C | [Far Cities](https://codeforces.com/contest/2258/problem/C) | 1600 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2258/C%20-%20Far%20Cities/solution.cpp) |
 | 2258F | [Plus Minus Tree](https://codeforces.com/contest/2258/problem/F) | 2500 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2258/F%20-%20Plus%20Minus%20Tree/solution.cpp) |
 | 2260F | [Edge Three-Coloring](https://codeforces.com/contest/2260/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/F%20-%20Edge%20Three-Coloring/solution.txt) |
+| 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
 
 ### two pointers
 
