@@ -1,0 +1,154 @@
+import sys
+import bisect
+import heapq
+ 
+MASKS = [1 << i for i in range(30)]
+ 
+def transform(a):
+    n = len(a)
+ 
+    left = []
+    right = []
+    size = []
+    branch = []
+    rep = []
+ 
+    stack = [(0, n, -1, 0)]
+    root = 0
+ 
+    while stack:
+        l, r, parent, side = stack.pop()
+ 
+        idx = len(size)
+        diff = a[l] ^ a[r - 1]
+ 
+        left.append(0)
+        right.append(0)
+        size.append(r - l)
+        rep.append(a[l])
+ 
+        if diff == 0:
+            branch.append(-1)
+        else:
+            b = diff.bit_length() - 1
+            block = 1 << (b + 1)
+            base = (a[l] >> (b + 1)) << (b + 1)
+            mid = bisect.bisect_left(a, base + (1 << b), l, r)
+ 
+            branch.append(b)
+ 
+            stack.append((mid, r, idx, 1))
+            stack.append((l, mid, idx, 0))
+ 
+        if parent == -1:
+            root = idx
+        elif side == 0:
+            left[parent] = idx
+        else:
+            right[parent] = idx
+ 
+    L = left
+    R = right
+    C = size
+    B = branch
+    P = rep
+    M = MASKS
+ 
+    def get(x, k):
+        v = root
+        b = B[v]
+ 
+        if b == -1:
+            return x ^ P[v]
+ 
+        res = (x ^ P[v]) & ~((1 << (b + 1)) - 1)
+ 
+        while b >= 0:
+            mask = M[b]
+ 
+            if x & mask:
+                u = R[v]
+ 
+                if C[u] >= k:
+                    v = u
+                else:
+                    k -= C[u]
+                    v = L[v]
+                    res |= mask
+            else:
+                u = L[v]
+ 
+                if C[u] >= k:
+                    v = u
+                else:
+                    k -= C[u]
+                    v = R[v]
+                    res |= mask
+ 
+            nb = B[v]
+ 
+            if nb >= 0:
+                gap = ((1 << b) - 1) ^ ((1 << (nb + 1)) - 1)
+                if gap:
+                    res |= (x ^ P[v]) & gap
+            else:
+                res |= (x ^ P[v]) & ((1 << b) - 1)
+ 
+            b = nb
+ 
+        return res
+ 
+    heap = [(get(x, 2), i, 2) for i, x in enumerate(a)]
+    heapq.heapify(heap)
+ 
+    new = []
+    append = new.append
+ 
+    for step in range(2 * n):
+        value, i, k = heapq.heappop(heap)
+ 
+        if not (step & 1):
+            append(value)
+ 
+        k += 1
+ 
+        if k <= n:
+            heapq.heappush(heap, (get(a[i], k), i, k))
+ 
+    return new
+ 
+ 
+def solve():
+    data = list(map(int, sys.stdin.buffer.read().split()))
+    it = iter(data)
+ 
+    t = next(it)
+    out = []
+ 
+    for _ in range(t):
+        n = next(it)
+        q = next(it)
+ 
+        a = [next(it) for _ in range(n)]
+        a.sort()
+ 
+        ans = [a[-1] - a[0]]
+ 
+        while a[-1] != 0:
+            a = transform(a)
+            ans.append(a[-1] - a[0])
+ 
+        for _ in range(q):
+            x = next(it)
+ 
+            if x < len(ans):
+                out.append(str(ans[x]))
+            else:
+                out.append(str(ans[-1]))
+ 
+    sys.stdout.write('
+'.join(out))
+ 
+ 
+if __name__ == "__main__":
+    solve()
