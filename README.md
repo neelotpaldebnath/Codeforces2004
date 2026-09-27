@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 44 | 24 |
+| 45 | 24 |
 
 ---
 
@@ -18,10 +18,10 @@
 - [brute force](#brute-force) (9)
 - [combinatorics](#combinatorics) (6)
 - [constructive algorithms](#constructive-algorithms) (12)
-- [data structures](#data-structures) (11)
+- [data structures](#data-structures) (12)
 - [dfs and similar](#dfs-and-similar) (6)
 - [divide and conquer](#divide-and-conquer) (1)
-- [dp](#dp) (11)
+- [dp](#dp) (12)
 - [dsu](#dsu) (3)
 - [fft](#fft) (1)
 - [games](#games) (1)
@@ -34,7 +34,7 @@
 - [number theory](#number-theory) (5)
 - [sortings](#sortings) (4)
 - [strings](#strings) (2)
-- [trees](#trees) (6)
+- [trees](#trees) (7)
 - [two pointers](#two-pointers) (4)
 
 ---
@@ -116,6 +116,7 @@
 | 2262B | [Culling Game](https://codeforces.com/contest/2262/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/B%20-%20Culling%20Game/solution.txt) |
 | 2264B | [Knife's Pill Farm](https://codeforces.com/contest/2264/problem/B) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/B%20-%20Knife's%20Pill%20Farm/solution.txt) |
 | 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
+| 2268D | [AghaBalaSar and Hamed](https://codeforces.com/contest/2268/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2268/D%20-%20AghaBalaSar%20and%20Hamed/solution.txt) |
 | 2268E | [Kia Kio and Tree of Life](https://codeforces.com/contest/2268/problem/E) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2268/E%20-%20Kia%20Kio%20and%20Tree%20of%20Life/solution.cpp) |
 
 ### dfs and similar
@@ -150,6 +151,7 @@
 | 2264E1 | [A Prime Flood (Easy Version)](https://codeforces.com/contest/2264/problem/E1) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/E1%20-%20A%20Prime%20Flood%20(Easy%20Version)/solution.txt) |
 | 2264E2 | [A Prime Flood (Hard Version)](https://codeforces.com/contest/2264/problem/E2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/E2%20-%20A%20Prime%20Flood%20(Hard%20Version)/solution.txt) |
 | 2267G | [New LRT](https://codeforces.com/contest/2267/problem/G) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/G%20-%20New%20LRT/solution.txt) |
+| 2268D | [AghaBalaSar and Hamed](https://codeforces.com/contest/2268/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2268/D%20-%20AghaBalaSar%20and%20Hamed/solution.txt) |
 
 ### dsu
 
@@ -284,6 +286,7 @@
 | 2258F | [Plus Minus Tree](https://codeforces.com/contest/2258/problem/F) | 2500 | [C++23 (GCC 14-64, msys2)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2258/F%20-%20Plus%20Minus%20Tree/solution.cpp) |
 | 2260F | [Edge Three-Coloring](https://codeforces.com/contest/2260/problem/F) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2260/F%20-%20Edge%20Three-Coloring/solution.txt) |
 | 2267F2 | [XOR Transformations (Hard Version)](https://codeforces.com/contest/2267/problem/F2) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/F2%20-%20XOR%20Transformations%20(Hard%20Version)/solution.txt) |
+| 2268D | [AghaBalaSar and Hamed](https://codeforces.com/contest/2268/problem/D) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2268/D%20-%20AghaBalaSar%20and%20Hamed/solution.txt) |
 | 2268E | [Kia Kio and Tree of Life](https://codeforces.com/contest/2268/problem/E) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2268/E%20-%20Kia%20Kio%20and%20Tree%20of%20Life/solution.cpp) |
 
 ### two pointers
