@@ -1,0 +1,102 @@
+import sys
+from array import array
+ 
+ 
+def solve():
+    input = sys.stdin.buffer.readline
+    t = int(input())
+    out = []
+ 
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+ 
+        N = n + 1
+        p = [0] + a
+ 
+        R = array('i', [N]) * (n + 2)
+        L = array('i', [N]) * (n + 2)
+        cnt_at = array('i', [0]) * (n + 2)
+        dp = array('q', [0]) * (n + 2)
+ 
+        stack = []
+ 
+        for i in range(n, 0, -1):
+            x = p[i]
+ 
+            while stack and p[stack[-1]] < x:
+                stack.pop()
+ 
+            r = stack[-1] if stack else N
+            R[i] = r
+            L[r] = i
+            stack.append(i)
+ 
+        del stack
+ 
+        for j in range(1, n + 1):
+            x = L[j]
+            if x != N:
+                cnt_at[x] += 1
+ 
+        answer = 0
+        left = 1
+ 
+        for right in range(1, n + 1):
+            if R[right] != N:
+                continue
+ 
+            width = right - left + 1
+            dp[right] = right - left
+ 
+            last = right if L[right] != N else right - 1
+            marked_count = 1 if L[right] != N else 0
+ 
+            for i in range(right - 1, left - 1, -1):
+                while last > i and L[last] > i:
+                    last -= 1
+ 
+                ri = R[i]
+ 
+                if last == ri:
+                    dp[i] = dp[ri] + width - 2 - (i - left)
+                else:
+                    c1 = i - left + 1
+ 
+                    if ri != N:
+                        rri = R[ri]
+                        duplicate = L[rri] <= i
+                        c2 = ri - i - 1 + 1 + marked_count - 1 - duplicate
+                    else:
+                        c2 = ri - i - 1 + marked_count - 1
+ 
+                    dp[i] = (
+                        dp[last]
+                        + 2 * width
+                        - 3
+                        - 2 * c1
+                        - c2
+                        + 1
+                    )
+ 
+                marked_count -= cnt_at[i]
+ 
+                if L[i] != N:
+                    marked_count += 1
+ 
+            base = left - 1
+ 
+            for i in range(left, right + 1):
+                dp[i] += base
+                answer += dp[i]
+ 
+            left = right + 1
+ 
+        out.append(str(answer))
+ 
+    sys.stdout.write("
+".join(out))
+ 
+ 
+if __name__ == "__main__":
+    solve()
