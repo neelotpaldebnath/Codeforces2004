@@ -1,0 +1,206 @@
+import sys
+ 
+def solve():
+    input = sys.stdin.buffer.readline
+    t = int(input())
+ 
+    for _ in range(t):
+        n = int(input())
+        N = 2 * n
+ 
+        a = [[0] * (N + 1) for _ in range(N + 1)]
+ 
+        for i in range(1, N + 1):
+            row = list(map(int, input().split()))
+            for j in range(1, N + 1):
+                a[i][j] = row[j - 1]
+ 
+        parity = 0
+ 
+        for j in range(1, N + 1):
+            for i in range(1, N + 1):
+                x = a[i][j]
+                for k in range(i + 1, N + 1):
+                    parity ^= x > a[k][j]
+ 
+        if parity:
+            print(-1)
+            continue
+ 
+        ans = []
+ 
+        def opr(i, j):
+            a[i][j], a[i + 1][j] = a[i + 1][j], a[i][j]
+            a[i][j + 1], a[i + 1][j + 1] = a[i + 1][j + 1], a[i][j + 1]
+            ans.append((i, j))
+ 
+        if n == 1:
+            if a[1][1] == 2:
+                opr(1, 1)
+ 
+            print(len(ans))
+            for x, y in ans:
+                print(x, y)
+            continue
+ 
+        def wh(x, j):
+            for i in range(x, N + 1):
+                if a[i][j] == x:
+                    return i
+ 
+        def move_right(x, j):
+            p = wh(x, j + 1)
+            for i in range(p - 1, x - 1, -1):
+                opr(i, j + 1)
+ 
+        def move_right_left(x, j):
+            p1 = wh(x, j + 1)
+            p2 = wh(x, j + 2)
+ 
+            while p1 > p2:
+                p1 -= 1
+                opr(p1, j)
+ 
+            while p1 < p2:
+                p2 -= 1
+                opr(p2, j + 2)
+ 
+            while p1 > x:
+                p1 -= 1
+                opr(p1, j + 1)
+ 
+        def move_left(x, j):
+            p = wh(x, j)
+            for i in range(p - 1, x - 1, -1):
+                opr(i, j - 1)
+ 
+        def move_left_special(x, j):
+            if a[x + 1][j] == x:
+                opr(x + 1, j)
+ 
+            opr(x, j - 1)
+ 
+            p = wh(x, j)
+            for i in range(p - 1, x, -1):
+                opr(i, j)
+ 
+            opr(x, j - 1)
+ 
+        def solve_zero(x, j):
+            p1 = wh(x, j)
+            p2 = wh(x, j + 1)
+ 
+            while p1 > p2:
+                p1 -= 1
+                opr(p1, j - 1)
+ 
+            while p1 < p2:
+                p2 -= 1
+                opr(p2, j + 1)
+ 
+            while p1 > x:
+                p1 -= 1
+                opr(p1, j)
+ 
+        def solve_left_pair(x):
+            if a[x][2] == x:
+                if a[x][1] == x:
+                    return
+ 
+                if a[x + 1][1] == x:
+                    opr(x + 1, 1)
+ 
+                opr(x, 1)
+ 
+            elif a[x][1] == x:
+                if a[x + 1][2] == x:
+                    opr(x + 1, 1)
+ 
+                opr(x, 1)
+ 
+            p1 = wh(x, 1)
+            p2 = wh(x, 2)
+ 
+            if p1 > p2:
+                while p1 > p2:
+                    p1 -= 1
+                    opr(p1, 1)
+                p2 += 1
+ 
+            while p1 < p2:
+                p2 -= 1
+                opr(p2, 2)
+ 
+            while p1 > x:
+                p1 -= 1
+                opr(p1, 1)
+ 
+        def solve_right_pair(x):
+            if a[x][N - 1] == x:
+                if a[x][N] == x:
+                    return
+ 
+                if a[x + 1][N] == x:
+                    opr(x + 1, N - 1)
+ 
+                opr(x, N - 1)
+ 
+            elif a[x][N] == x:
+                if a[x + 1][N - 1] == x:
+                    opr(x + 1, N - 1)
+ 
+                opr(x, N - 1)
+ 
+            p1 = wh(x, N - 1)
+            p2 = wh(x, N)
+ 
+            if p1 < p2:
+                while p1 < p2:
+                    p2 -= 1
+                    opr(p2, N - 1)
+                p1 += 1
+ 
+            while p1 > p2:
+                p1 -= 1
+                opr(p1, N - 2)
+ 
+            while p1 > x:
+                p1 -= 1
+                opr(p1, N - 1)
+ 
+        for x in range(1, N - 1):
+            for j in range(3, N - 2, 2):
+                if a[x][j] == x and a[x][j + 1] == x:
+                    opr(x, j)
+ 
+            for j in range(3, N - 2, 2):
+                if a[x][j] == x and a[x][j + 1] != x:
+                    if j == N - 3 or a[x][j + 3] != x:
+                        move_right(x, j)
+                    else:
+                        move_right_left(x, j)
+ 
+            for j in range(N - 3, 2, -2):
+                if a[x][j] != x and a[x][j + 1] == x:
+                    if a[x][j - 2] == x and a[x][j - 1] == x:
+                        move_left_special(x, j)
+                    else:
+                        move_left(x, j)
+ 
+            for j in range(3, N - 2, 2):
+                if a[x][j] != x:
+                    solve_zero(x, j)
+ 
+            solve_left_pair(x)
+            solve_right_pair(x)
+ 
+        for j in range(1, N):
+            if a[N][j] != N:
+                opr(N - 1, j)
+ 
+        print(len(ans))
+        for x, y in ans:
+            print(x, y)
+ 
+if __name__ == "__main__":
+    solve()
