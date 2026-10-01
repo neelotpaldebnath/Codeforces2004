@@ -1,0 +1,132 @@
+import sys
+import heapq
+ 
+ 
+class SegTree:
+    def __init__(self, n):
+        self.size = 1
+        while self.size < n:
+            self.size <<= 1
+        self.tree = [0] * (2 * self.size)
+ 
+    def update(self, pos, value):
+        pos += self.size
+        self.tree[pos] = value
+        pos >>= 1
+ 
+        while pos:
+            self.tree[pos] = max(self.tree[pos << 1], self.tree[pos << 1 | 1])
+            pos >>= 1
+ 
+    def query(self, left, right):
+        if left > right:
+            return 0
+ 
+        left += self.size
+        right += self.size
+        ans = 0
+ 
+        while left <= right:
+            if left & 1:
+                ans = max(ans, self.tree[left])
+                left += 1
+ 
+            if not (right & 1):
+                ans = max(ans, self.tree[right])
+                right -= 1
+ 
+            left >>= 1
+            right >>= 1
+ 
+        return ans
+ 
+ 
+def solve_pass(n, m, positions, order):
+    seg = SegTree(m)
+    active = []
+    result = [0] * m
+    first = True
+ 
+    for value in order:
+        new_states = []
+ 
+        for pos in positions[value]:
+            if first:
+                new_states.append((pos, 1))
+            else:
+                best = seg.query(pos + 1, m - 1)
+ 
+                if best > 0:
+                    new_states.append((pos, best + 1))
+ 
+        last = positions[value][-1]
+ 
+        while active and -active[0] > last:
+            pos = -heapq.heappop(active)
+            seg.update(pos, 0)
+ 
+        for pos, value_dp in new_states:
+            seg.update(pos, value_dp)
+            heapq.heappush(active, -pos)
+            result[pos] = value_dp
+ 
+        first = False
+ 
+    return result
+ 
+ 
+def solve():
+    input = sys.stdin.readline
+ 
+    t = int(input())
+ 
+    dequefault = 0
+ 
+    for _ in range(t):
+        n, m = map(int, input().split())
+        b = list(map(int, input().split()))
+ 
+        positions = [[] for _ in range(n + 1)]
+ 
+        for i, value in enumerate(b):
+            positions[value].append(i)
+ 
+        possible = True
+ 
+        for value in range(1, n + 1):
+            if not positions[value]:
+                possible = False
+                break
+ 
+        if not possible:
+            print(-1)
+            continue
+ 
+        left_dp = solve_pass(
+            n,
+            m,
+            positions,
+            range(1, n + 1)
+        )
+ 
+        right_dp = solve_pass(
+            n,
+            m,
+            positions,
+            range(n, 0, -1)
+        )
+ 
+        best = 0
+ 
+        for i in range(m):
+            if left_dp[i] and right_dp[i]:
+                best = max(
+                    best,
+                    left_dp[i] + right_dp[i] - 1
+                )
+ 
+        print(n - best)
+ 
+ 
+if __name__ == "__main__":
+    solve()
