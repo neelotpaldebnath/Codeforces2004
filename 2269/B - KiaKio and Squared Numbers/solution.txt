@@ -1,0 +1,70 @@
+import sys
+ 
+input = sys.stdin.readline
+ 
+def digit_square_sum(x):
+    s = 0
+    while x:
+        d = x % 10
+        s += d * d
+        x //= 10
+    return s
+ 
+memo = {}
+ 
+def get_signature(x):
+    if x in memo:
+        return memo[x]
+ 
+    path = []
+    pos = {}
+    cur = x
+ 
+    while cur not in memo and cur not in pos:
+        pos[cur] = len(path)
+        path.append(cur)
+        cur = digit_square_sum(cur)
+ 
+    if cur in pos:
+        start = pos[cur]
+        cycle = path[start:]
+        length = len(cycle)
+        cycle_id = min(cycle)
+ 
+        for i, v in enumerate(cycle):
+            memo[v] = (cycle_id, i, length)
+ 
+        for i in range(start - 1, -1, -1):
+            v = path[i]
+            cid, phase, length = memo[digit_square_sum(v)]
+            memo[v] = (cid, (phase - 1) % length, length)
+ 
+    else:
+        cid, phase, length = memo[cur]
+ 
+        for i in range(len(path) - 1, -1, -1):
+            v = path[i]
+            memo[v] = (cid, (phase - 1) % length, length)
+            phase = (phase - 1) % length
+ 
+    return memo[x]
+ 
+def solve():
+    t = int(input())
+ 
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+ 
+        freq = {}
+        ans = 0
+ 
+        for x in a:
+            sig = get_signature(x)
+ 
+            ans += freq.get(sig, 0)
+            freq[sig] = freq.get(sig, 0) + 1
+ 
+        print(ans)
+ 
+solve()
