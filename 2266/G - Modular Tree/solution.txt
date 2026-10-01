@@ -1,0 +1,61 @@
+import sys
+from math import gcd
+ 
+ 
+def solve():
+    input = sys.stdin.readline
+ 
+    t = int(input())
+    dequefault = 0
+ 
+    for _ in range(t):
+        n = int(input())
+ 
+        a = list(map(int, input().split()))
+        b = list(map(int, input().split()))
+ 
+        graph = [[] for _ in range(n)]
+ 
+        for _ in range(n - 1):
+            u, v = map(int, input().split())
+            u -= 1
+            v -= 1
+            graph[u].append(v)
+            graph[v].append(u)
+ 
+        parent = [-1] * n
+        order = [0]
+ 
+        for u in order:
+            for v in graph[u]:
+                if v == parent[u]:
+                    continue
+                parent[v] = u
+                order.append(v)
+ 
+        g = [0] * n
+        answer = 0
+ 
+        for u in reversed(order):
+            child_sum = 0
+ 
+            for v in graph[u]:
+                if parent[v] == u:
+                    child_sum += a[v]
+ 
+            cur = gcd(b[u], child_sum)
+ 
+            for v in graph[u]:
+                if parent[v] == u and g[v] != b[v]:
+                    cur = gcd(cur, g[v])
+ 
+            g[u] = cur
+ 
+            maximum = a[u] + ((b[u] - 1 - a[u]) // g[u]) * g[u]
+            answer += maximum
+ 
+        print(answer)
+ 
+ 
+if __name__ == "__main__":
+    solve()
