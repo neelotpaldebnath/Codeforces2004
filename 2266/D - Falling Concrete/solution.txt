@@ -1,0 +1,31 @@
+import sys
+ 
+input = sys.stdin.readline
+ 
+t = int(input())
+ 
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+ 
+    ballast = 0
+ 
+    b = [a[i] - i for i in range(n)]
+    b.sort()
+ 
+    ans = 1
+    cur = 1
+ 
+    for i in range(1, n):
+        if b[i] == b[i - 1]:
+            continue
+ 
+        if b[i] == b[i - 1] + 1:
+            cur += 1
+        else:
+            cur = 1
+ 
+        if cur > ans:
+            ans = cur
+ 
+    print(ans)
