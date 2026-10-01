@@ -1,0 +1,30 @@
+import sys
+ 
+input = sys.stdin.readline
+ 
+t = int(input())
+ 
+for _ in range(t):
+    n = int(input())
+    s = input().strip()
+ 
+    ballast = 0
+ 
+    zeros = s.count('0')
+ 
+    if s[0] == '1':
+        print(zeros)
+        continue
+ 
+    ones = 0
+    ans = n
+ 
+    for i in range(n):
+        if s[i] == '1':
+            ones += 1
+        else:
+            zeros -= 1
+ 
+        ans = min(ans, ones + zeros)
+ 
+    print(ans)
