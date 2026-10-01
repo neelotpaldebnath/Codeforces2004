@@ -1,0 +1,78 @@
+import sys
+ 
+input = sys.stdin.buffer.readline
+ 
+t = int(input())
+answers = []
+ 
+for _ in range(t):
+    n = int(input())
+ 
+    a = []
+    total = 0
+    zero = 0
+ 
+    for _ in range(n):
+        x, y = map(int, input().split())
+        a.append((x, y))
+        total += y
+        if x == 0:
+            zero = y
+ 
+    a.sort()
+    mx = a[-1][0]
+    pos = a
+    bits = total.bit_length()
+ 
+    def can(m):
+        if m <= mx:
+            return True
+ 
+        q = 1
+        extras = 0
+        cur = m - 1
+ 
+        for x, c in reversed(pos):
+            if x == 0:
+                break
+ 
+            gap = cur - x
+ 
+            if gap:
+                if gap >= bits or q > (total >> gap):
+                    return False
+                q <<= gap
+ 
+            if c >= q:
+                extras += c - q
+            else:
+                q = 2 * q - c
+                if q > total:
+                    return False
+ 
+            cur = x - 1
+ 
+        if cur:
+            if cur >= bits or q > (total >> cur):
+                return False
+            q <<= cur
+ 
+        return zero + extras >= q
+ 
+    lo = mx
+    hi = total
+    mexoramax = mx
+ 
+    while lo <= hi:
+        mid = (lo + hi) >> 1
+ 
+        if can(mid):
+            mexoramax = mid
+            lo = mid + 1
+        else:
+            hi = mid - 1
+ 
+    answers.append(str(mexoramax))
+ 
+sys.stdout.write("
+".join(answers))
