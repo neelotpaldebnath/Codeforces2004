@@ -1,0 +1,42 @@
+import sys
+ 
+input = sys.stdin.buffer.readline
+ 
+MAXN = 200000
+ 
+spf = list(range(MAXN + 1))
+ 
+for i in range(2, int(MAXN ** 0.5) + 1):
+    if spf[i] == i:
+        for j in range(i * i, MAXN + 1, i):
+            if spf[j] == j:
+                spf[j] = i
+ 
+t = int(input())
+out = []
+ 
+for _ in range(t):
+    n, k = map(int, input().split())
+    a = list(map(int, input().split()))
+ 
+    dp = [0] * (n + 1)
+    INF = 10**30
+ 
+    for i in range(k + 1, n + 1):
+        x = i
+        best = INF
+ 
+        while x > 1:
+            p = spf[x]
+            best = min(best, 1 + p * dp[i // p])
+ 
+            while x % p == 0:
+                x //= p
+ 
+        dp[i] = best
+ 
+    ans = sum(dp[x] for x in a)
+    out.append(str(ans))
+ 
+sys.stdout.write("
+".join(out))
