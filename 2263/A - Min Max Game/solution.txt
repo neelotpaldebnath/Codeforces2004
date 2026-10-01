@@ -1,0 +1,12 @@
+t = int(input())
+ 
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+ 
+    ones = sum(a)
+ 
+    if ones >= (n + 1) // 2:
+        print("Bessie")
+    else:
+        print("Elsie")
