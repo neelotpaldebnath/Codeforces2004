@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 12 | 15 |
+| 13 | 16 |
 
 ---
 
@@ -21,10 +21,11 @@
 - [dp](#dp) (1)
 - [dsu](#dsu) (2)
 - [graphs](#graphs) (2)
-- [greedy](#greedy) (5)
+- [greedy](#greedy) (6)
 - [implementation](#implementation) (1)
 - [interactive](#interactive) (1)
-- [math](#math) (6)
+- [math](#math) (7)
+- [number theory](#number-theory) (1)
 - [trees](#trees) (2)
 - [two pointers](#two-pointers) (2)
 
@@ -101,6 +102,7 @@
 | 2259C | [101](https://codeforces.com/contest/2259/problem/C) | 1000 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/C%20-%20101/solution.txt) |
 | 2259D | [MEX Multiset](https://codeforces.com/contest/2259/problem/D) | 1200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/D%20-%20MEX%20Multiset/solution.txt) |
 | 2259E | [Treasure Map Destruction (Constructive Version)](https://codeforces.com/contest/2259/problem/E) | 1500 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/E%20-%20Treasure%20Map%20Destruction%20(Constructive%20Version)/solution.txt) |
+| 2267C | [GCD Treasury](https://codeforces.com/contest/2267/problem/C) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/C%20-%20GCD%20Treasury/solution.cpp) |
 
 ### implementation
 
@@ -124,6 +126,13 @@
 | 2259F | [Binary Bubble Sort Inversions](https://codeforces.com/contest/2259/problem/F) | 1800 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/F%20-%20Binary%20Bubble%20Sort%20Inversions/solution.txt) |
 | 2259G | [Index Removal](https://codeforces.com/contest/2259/problem/G) | 1900 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/G%20-%20Index%20Removal/solution.txt) |
 | 2259H | [Treasure Map Destruction (Counting Version)](https://codeforces.com/contest/2259/problem/H) | 2200 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2259/H%20-%20Treasure%20Map%20Destruction%20(Counting%20Version)/solution.txt) |
+| 2267C | [GCD Treasury](https://codeforces.com/contest/2267/problem/C) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/C%20-%20GCD%20Treasury/solution.cpp) |
+
+### number theory
+
+| # | Problem | Difficulty | Solution |
+|---|---------|------------|----------|
+| 2267C | [GCD Treasury](https://codeforces.com/contest/2267/problem/C) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/C%20-%20GCD%20Treasury/solution.cpp) |
 
 ### trees
 
