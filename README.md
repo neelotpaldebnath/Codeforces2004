@@ -6,7 +6,7 @@
 
 | Total Problems | Topics |
 |---|---|
-| 44 | 24 |
+| 45 | 24 |
 
 ---
 
@@ -26,14 +26,14 @@
 - [dsu](#dsu) (3)
 - [games](#games) (2)
 - [graphs](#graphs) (6)
-- [greedy](#greedy) (14)
+- [greedy](#greedy) (15)
 - [implementation](#implementation) (8)
 - [interactive](#interactive) (1)
 - [math](#math) (20)
 - [matrices](#matrices) (2)
 - [number theory](#number-theory) (6)
 - [sortings](#sortings) (4)
-- [strings](#strings) (1)
+- [strings](#strings) (2)
 - [trees](#trees) (4)
 - [two pointers](#two-pointers) (4)
 
@@ -200,6 +200,7 @@
 | 2262D | [PLUSworld](https://codeforces.com/contest/2262/problem/D) | 2900 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2262/D%20-%20PLUSworld/solution.txt) |
 | 2264B | [Knife's Pill Farm](https://codeforces.com/contest/2264/problem/B) | 1000 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/B%20-%20Knife's%20Pill%20Farm/solution.txt) |
 | 2266H | [Deque Malfunction](https://codeforces.com/contest/2266/problem/H) | Unrated | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2266/H%20-%20Deque%20Malfunction/solution.txt) |
+| 2267A | [Turn Into a Palindrome](https://codeforces.com/contest/2267/problem/A) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/A%20-%20Turn%20Into%20a%20Palindrome/solution.cpp) |
 | 2267C | [GCD Treasury](https://codeforces.com/contest/2267/problem/C) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/C%20-%20GCD%20Treasury/solution.cpp) |
 
 ### implementation
@@ -278,6 +279,7 @@
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 2264D | [Dr. Agos's Dark Mode](https://codeforces.com/contest/2264/problem/D) | 1900 | [PyPy 3-64](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2264/D%20-%20Dr.%20Agos's%20Dark%20Mode/solution.txt) |
+| 2267A | [Turn Into a Palindrome](https://codeforces.com/contest/2267/problem/A) | Unrated | [C++20 (GCC 13-64)](https://github.com/neelotpaldebnath/Codeforces2004/blob/HEAD/2267/A%20-%20Turn%20Into%20a%20Palindrome/solution.cpp) |
 
 ### trees
 
